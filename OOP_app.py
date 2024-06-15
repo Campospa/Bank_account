@@ -1,4 +1,4 @@
-'''Implement OOP principles to the app.py file'''
+
 
 '''Imports and Database implementation'''
 from sqlalchemy import create_engine, Column, String, Integer, ForeignKey, Numeric, Float
@@ -6,14 +6,13 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 from decimal import Decimal
 
-import click # Prompts users to enter their information
+import click 
 
 from datetime import datetime
 
 
 # Setup Database
 engine = create_engine("postgresql://Campospa:2883@localhost/Bank Account")
-#engine = create_engine("sqlite:///demo.db")
 Session = sessionmaker(bind=engine)
 session = Session()
 
@@ -69,7 +68,6 @@ class Banking:
     @staticmethod
     def create_account(account_name , initial_balance):
         accounts = Account(account_name=account_name, balance=initial_balance)
-        #with Session(engine) as session:
         session = Session()
         session.add(accounts)
         session.commit()
